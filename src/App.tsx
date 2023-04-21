@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {MainHeader} from "./components/base_components/MainHeader";
+import {RouterProvider} from "react-router-dom";
+import {router} from "./router";
+import {UserContext} from "./Context";
+import * as React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+    render() {
+        return (
+            <UserContext.Provider value={JSON.parse(localStorage.getItem("user") as string)}>
+                <div className="App">
+                    <MainHeader/>
+                    <RouterProvider router={router}/>
+                </div>
+            </UserContext.Provider>
+        );
+    }
 }
 
 export default App;
