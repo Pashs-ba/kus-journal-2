@@ -5,6 +5,10 @@ import {UserContext} from "./Context";
 import * as React from "react";
 
 class App extends React.Component{
+    constructor(props: any) {
+        super(props);
+        document.documentElement.setAttribute("data-bs-theme", localStorage.getItem("theme") as string)
+    }
     render() {
         return (
             <UserContext.Provider value={JSON.parse(localStorage.getItem("user") as string)}>

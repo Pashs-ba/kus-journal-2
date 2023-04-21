@@ -10,8 +10,10 @@ export class MainHeader extends React.Component {
     changeTheme(){
         if (document.documentElement.getAttribute("data-bs-theme") === "light"){
             document.documentElement.setAttribute("data-bs-theme", "dark")
+            localStorage.setItem("theme", "dark")
         }else{
             document.documentElement.setAttribute("data-bs-theme", "light")
+            localStorage.setItem("theme", "light")
         }
 
     }
