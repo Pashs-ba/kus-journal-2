@@ -1,15 +1,17 @@
 import {createBrowserRouter} from "react-router-dom";
-import {EmptyPage} from "../pages/EmptyPage";
+import {MainPage} from "../pages/MainPage";
 import {Login} from "../pages/Login";
 import {AnonymOnly, LoginRequired} from "./Guards";
 import {CompetitionSelect} from "../pages/competition/CompetitionSelect";
+import {CompetitionPage} from "../pages/competition/CompetitionPage";
 
 
 export const router = createBrowserRouter([
     {
         path: "/",
         loader: LoginRequired,
-        element: <EmptyPage/>,
+        element: <MainPage/>,
+
     },
     {
         path: "/login",
@@ -20,5 +22,10 @@ export const router = createBrowserRouter([
         path: "/competition",
         loader: LoginRequired,
         element: <CompetitionSelect/>
+    },
+    {
+        path: "/competition/:id",
+        loader: LoginRequired,
+        element: <CompetitionPage/>
     }
 ]);

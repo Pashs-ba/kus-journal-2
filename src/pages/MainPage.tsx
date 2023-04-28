@@ -3,7 +3,7 @@ import "../style/base.sass"
 import {ColBlock} from "../components/UI/ColBlock";
 import {GetUser} from "../utils";
 
-export function EmptyPage() {
+export function MainPage() {
     const user = GetUser()
     const competition_page = user.role.includes("submitor") ? (
         <SimpleCardLink path={"/competition"} user_name={"Список соревнований"}/>

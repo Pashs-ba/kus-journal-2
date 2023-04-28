@@ -18,7 +18,7 @@ export function CompetitionSelect() {
     const CompetitionRender = (competitions: CompetitionUser[]) => {
         let elements = []
         for (let i = 0; i < competitions.length; i++) {
-            elements.push((<SimpleCardLink path={"/"} user_name={competitions[i].competition.name} key={i}/>))
+            elements.push((<SimpleCardLink path={"/competition/"+competitions[i].competition.id} user_name={competitions[i].competition.name} key={i}/>))
         }
         return elements
     }
