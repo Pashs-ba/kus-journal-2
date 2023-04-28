@@ -5,6 +5,7 @@ import {CompetitionUser} from "../../types/schema";
 import {SimpleCardLink} from "../../components/UI/SimpleCardLink";
 import {ColBlock} from "../../components/UI/ColBlock";
 import {useEffect, useRef, useState} from "react";
+import {RouterName} from "../../router";
 
 export function CompetitionSelect() {
     const user = useRef(GetUser());
@@ -18,7 +19,7 @@ export function CompetitionSelect() {
     const CompetitionRender = (competitions: CompetitionUser[]) => {
         let elements = []
         for (let i = 0; i < competitions.length; i++) {
-            elements.push((<SimpleCardLink path={"/competition/"+competitions[i].competition.id} user_name={competitions[i].competition.name} key={i}/>))
+            elements.push((<SimpleCardLink path={RouterName.CompetitionPage(competitions[i].competition.id)} user_name={competitions[i].competition.name} key={i}/>))
         }
         return elements
     }

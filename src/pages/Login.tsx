@@ -6,15 +6,15 @@ import {URL} from "../config";
 import axios from "axios";
 import {useState} from "react";
 import {useNavigate} from "react-router";
+import {RouterName} from "../router";
 
 export function Login() {
     const [showError, showErrorChange] = useState(false);
     const navigate = useNavigate();
     const send = (data: any) => {
         axios.post(URL + "/login", data).then((response) => {
-            console.log("yes")
             localStorage.setItem("user", JSON.stringify(response.data))
-            navigate("/")
+            navigate(RouterName.Base)
         }).catch(() => {
             showErrorChange(true)
         })

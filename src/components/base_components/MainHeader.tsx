@@ -1,5 +1,7 @@
 import * as React from "react";
 import {UserContext} from "../../Context";
+import {Link} from "react-router-dom";
+import {RouterName} from "../../router";
 
 export class MainHeader extends React.Component {
     changeTheme() {
@@ -15,11 +17,11 @@ export class MainHeader extends React.Component {
 
     render() {
         let user = JSON.stringify(localStorage.getItem("user"))
-        let home_link = user?(<a className="nav-link active" aria-current="page" href="/">Домашняя старница</a>):""
+        let home_link = user?(<Link className="nav-link active" aria-current="page" to={RouterName.Base}>Домашняя старница</Link>):""
         return (
             <nav className="navbar bg-light-subtle">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">KusJournal</a>
+                    <Link className="navbar-brand" to={RouterName.Base}>KusJournal</Link>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             {home_link}
