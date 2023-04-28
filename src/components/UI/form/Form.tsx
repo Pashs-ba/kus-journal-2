@@ -1,5 +1,5 @@
-import {FormElement} from "../../types";
-import {IsInput} from "../../types/input";
+import {FormElement} from "../../../types";
+import {IsInput} from "../../../types/input";
 import {Input} from "./Input";
 import React, {useState} from "react";
 

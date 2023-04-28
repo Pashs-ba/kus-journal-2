@@ -1,5 +1,5 @@
 import "../style/base.sass"
-import {Form} from "../components/UI/Form";
+import {Form} from "../components/UI/form/Form";
 import {FormElement} from "../types";
 import {InputElement} from "../types/input";
 import {URL} from "../config";
