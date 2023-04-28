@@ -5,6 +5,7 @@ import {AnonymOnly, LoginRequired} from "./Guards";
 import {CompetitionSelect} from "../pages/competition/CompetitionSelect";
 import {CompetitionPage} from "../pages/competition/CompetitionPage";
 import {BasePage} from "../pages/BasePage";
+import {Page404} from "../pages/Page404";
 
 export const RouterName = {
     Base: "/",
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
                 path: RouterName.CompetitionPage(),
                 loader: LoginRequired,
                 element: <CompetitionPage/>
+            },
+            {
+                path: '*',
+                element: <Page404/>
             }
         ]
     },
