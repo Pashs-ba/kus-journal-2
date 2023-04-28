@@ -11,7 +11,7 @@ export const RouterName = {
     Base: "/",
     Login: "/login",
     CompetitionSelect: "/competition",
-    CompetitionPage: (id = -1)=>{return id !== -1?"/competition/"+id:"/competition/:id"}
+    CompetitionPage: (id = -1)=>{return id !== -1?"/competition/"+id:"/competition/:competition_id"}
 }
 export const router = createBrowserRouter([
     {

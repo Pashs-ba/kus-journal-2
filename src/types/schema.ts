@@ -20,3 +20,27 @@ export interface CompetitionUser{
     competition_id: number,
     competition: Competition
 }
+
+interface Test{
+    input: string,
+    output: string,
+}
+
+interface Submission{
+    result: string,
+    test: string
+    time: string
+}
+
+export interface Problem{
+    id: number,
+    name: string,
+    legend?: string,
+    input_format?: string,
+    output_format?: string,
+    time_limit?: number
+    memory_limit?: number,
+    tests?: Test[]
+    submission?: Submission[]
+
+}

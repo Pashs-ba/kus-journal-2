@@ -17,7 +17,7 @@ export class MainHeader extends React.Component {
 
     render() {
         let user = JSON.stringify(localStorage.getItem("user"))
-        let home_link = user?(<Link className="nav-link active" aria-current="page" to={RouterName.Base}>Домашняя старница</Link>):""
+        let home_link = user?(<Link className="nav-link active" aria-current="page" to={RouterName.Base}>Домашняя страница</Link>):""
         return (
             <nav className="navbar bg-light-subtle">
                 <div className="container-fluid">
