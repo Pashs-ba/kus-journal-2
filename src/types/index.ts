@@ -5,4 +5,3 @@ export interface FormElement<element_type> {
     label: string,
     bottom_text?: string,
 }
-

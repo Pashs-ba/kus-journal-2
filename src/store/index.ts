@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {ProblemsSlice} from "./problems/ProblemsSlice";
+import {CompetitionSlice} from "./slices/CompetitionSlice";
 
 export const store = configureStore({
-    reducer: ProblemsSlice.reducer
+    reducer: CompetitionSlice.reducer
 })

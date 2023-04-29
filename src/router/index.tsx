@@ -6,12 +6,14 @@ import {CompetitionSelect} from "../pages/competition/CompetitionSelect";
 import {CompetitionPage} from "../pages/competition/CompetitionPage";
 import {BasePage} from "../pages/BasePage";
 import {Page404} from "../pages/Page404";
+import {ProblemPage} from "../pages/competition/ProblemPage";
 
 export const RouterName = {
     Base: "/",
     Login: "/login",
     CompetitionSelect: "/competition",
-    CompetitionPage: (id = -1)=>{return id !== -1?"/competition/"+id:"/competition/:competition_id"}
+    CompetitionPage: (id = -1)=>{return id !== -1?"/competition/"+id:"/competition/:competition_id"},
+    ProblemPage: (id = -1)=>{return id !== -1?"problem/"+id:"problem/:problem_id"}
 }
 export const router = createBrowserRouter([
     {
@@ -37,7 +39,14 @@ export const router = createBrowserRouter([
             {
                 path: RouterName.CompetitionPage(),
                 loader: LoginRequired,
-                element: <CompetitionPage/>
+                element: <CompetitionPage/>,
+                children: [
+                    {
+                        path: RouterName.ProblemPage(),
+                        loader: LoginRequired,
+                        element: <ProblemPage/>
+                    }
+                ]
             },
             {
                 path: '*',

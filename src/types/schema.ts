@@ -42,5 +42,4 @@ export interface Problem{
     memory_limit?: number,
     tests?: Test[]
     submission?: Submission[]
-
 }
