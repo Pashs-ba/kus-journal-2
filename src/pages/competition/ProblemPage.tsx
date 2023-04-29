@@ -19,17 +19,24 @@ export function ProblemPage() {
         })[0] as Problem
     }, [params.problem_id, problems])
     useEffect(() => {
-        if (!getCurrentProblem().legend) {
+        if (getCurrentProblem() && !getCurrentProblem().legend) {
             axios.get(URL+"/get_problem/"+params.problem_id+"/"+user.id).then((response)=>{
                 dispatch(replace_one(response.data.problem[0]))
             })
         }
     }, [dispatch, getCurrentProblem, params.problem_id, user.id])
-    return (
-        <div className={"py-4"}>
-            <p>{getCurrentProblem()?getCurrentProblem().legend:""}</p>
-            <p>{params.problem_id}</p>
-            <p>{params.competition_id}</p>
+    if (getCurrentProblem()){
+        return (
+            <div className={"py-4"}>
+                <p dangerouslySetInnerHTML={{__html: getCurrentProblem().legend as string}}></p>
+                <p>{params.problem_id}</p>
+                <p>{params.competition_id}</p>
+            </div>
+        )
+    }else{
+        return <div className={"py-4"}>
+            <p>Загрузка....</p>
         </div>
-    )
+    }
+
 }
