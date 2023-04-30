@@ -6,6 +6,7 @@ import {Problem} from "../../types/schema";
 import axios from "axios";
 import {URL} from "../../config";
 import {GetUser} from "../../utils";
+import {ProblemData} from "../../components/competition/ProblemData";
 
 export function ProblemPage() {
     const params = useParams()
@@ -18,25 +19,26 @@ export function ProblemPage() {
             return el.id === Number(params.problem_id)
         })[0] as Problem
     }, [params.problem_id, problems])
+
     useEffect(() => {
         if (getCurrentProblem() && !getCurrentProblem().legend) {
-            axios.get(URL+"/get_problem/"+params.problem_id+"/"+user.id).then((response)=>{
+            axios.get(URL + "/get_problem/" + params.problem_id + "/" + user.id).then((response) => {
                 dispatch(replace_one(response.data.problem[0]))
             })
         }
     }, [dispatch, getCurrentProblem, params.problem_id, user.id])
-    if (getCurrentProblem()){
+
+    const problem = getCurrentProblem()
+    if (getCurrentProblem()) {
         return (
-            <div className={"py-4"}>
-                <p dangerouslySetInnerHTML={{__html: getCurrentProblem().legend as string}}></p>
-                <p>{params.problem_id}</p>
-                <p>{params.competition_id}</p>
+            <ProblemData problem={problem}/>
+        )
+    } else {
+        return (
+            <div className={""}>
+                <p>Загрузка....</p>
             </div>
         )
-    }else{
-        return <div className={"py-4"}>
-            <p>Загрузка....</p>
-        </div>
     }
 
 }

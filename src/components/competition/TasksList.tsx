@@ -26,12 +26,11 @@ export function TasksList({problems}: TasksListInterface) {
         return elements
     }
     return (
-        <div className="py-4 h-100">
             <div className=" h-100 border-end border-2 px-4">
                 <h5>Задачи:</h5>
                 <ul className="list-group list-group-flush">
                     {RenderProblems(problems)}
                 </ul>
             </div>
-        </div>)
+        )
 }

@@ -21,12 +21,12 @@ export interface CompetitionUser{
     competition: Competition
 }
 
-interface Test{
+export interface Test{
     input: string,
     output: string,
 }
 
-interface Submission{
+export interface Submission{
     result: string,
     test: string
     time: string
