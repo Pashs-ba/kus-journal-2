@@ -19,7 +19,7 @@ export class MainHeader extends React.Component {
         let user = JSON.stringify(localStorage.getItem("user"))
         let home_link = user?(<Link className="nav-link active" aria-current="page" to={RouterName.Base}>Домашняя страница</Link>):""
         return (
-            <nav className="navbar bg-light-subtle">
+            <nav className="navbar bg-body-secondary">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={RouterName.Base}>KusJournal</Link>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">

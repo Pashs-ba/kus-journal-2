@@ -27,9 +27,10 @@ export interface Test{
 }
 
 export interface Submission{
-    result: string,
-    test: string
-    time: string
+    id: number
+    verdict: string,
+    test: number
+    date_val: string
 }
 
 export interface Problem{
